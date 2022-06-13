@@ -2,7 +2,7 @@
 Test basic functionality of the maze library
 """
 import pytest
-from cell import Cell
+from src.cell import Cell
 
 
 def test_cell_init():
