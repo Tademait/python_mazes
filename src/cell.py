@@ -1,6 +1,6 @@
 class Cell:
     def __repr__(self):
-        return f"<Cell object|r{self.row} c{self.column}"
+        return f"<Cell object|r{self.row} c{self.column}>"
 
     def __init__(self, row, column):
         self.row = row

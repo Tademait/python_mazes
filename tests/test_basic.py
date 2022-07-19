@@ -2,7 +2,8 @@
 Test basic functionality of the maze library
 """
 import pytest
-from src.cell import Cell
+from ..src.cell import Cell
+from ..src.grid import Grid
 
 
 def test_cell_init():
@@ -55,5 +56,32 @@ def test_query_neighbors():
     cell1.link(cell2)
     # todo n/s/e/w neighbors are managed by grid module, cant test now
 
+def test_grid_init():
+    grid1 = Grid(2, 2)
+    for i in range(grid1.rows):
+        print()
+        for j in range(grid1.columns):
+            print(grid1.grid[i][j], end=" ")
+    assert True
 
+def test_configure_cells():
+    #  0;0  0;1
+    #  1;0  1;1
 
+    grid1 = Grid(2, 2)
+    top_left_cell = grid1.grid[0][0]
+    assert top_left_cell.north == None
+    assert top_left_cell.south == grid1.grid[1][0]
+    assert top_left_cell.west == None
+    assert top_left_cell.east == grid1.grid[0][1]
+
+    top_right_cell = grid1.grid[0][1]
+    assert top_right_cell.north == None
+    assert top_right_cell.south == grid1.grid[1][1] 
+    assert top_right_cell.west == grid1.grid[0][0]
+    assert top_right_cell.east == None
+
+def test_get_size():
+    grid1 = Grid(2, 2)
+    grid_size = grid1.get_size()
+    assert grid_size == 4
