@@ -12,7 +12,25 @@ class Grid:
     def __repr__(self):
         output = "+" + "---+" * self.columns + "\n"
         
+        # todo: remove index & enumerate for clean output
+        for index, row in enumerate(self.grid):
+            top = "|"
+            bottom = "+"
 
+            for index2, cell in enumerate(row):
+
+                # body = f"{index}x{index2}" # three spaces
+                body = "   "
+                east_boundary = " " if cell.is_linked_to(cell.east) else "|"
+                top += body + east_boundary
+
+                south_boundary = "   " if cell.is_linked_to(cell.south) else "---"
+                corner = "+"
+                bottom += south_boundary + corner
+
+            output += top + "\n" + bottom + "\n"
+
+        return output
 
     def prepare_grid(self):
         return [[Cell(row, col) for col in range(self.columns)] for row in range(self.rows)]
