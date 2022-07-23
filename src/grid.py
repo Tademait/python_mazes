@@ -1,4 +1,4 @@
-from src.cell import Cell
+from cell import Cell
 from random import randint
 
 class Grid:
