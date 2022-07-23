@@ -2,8 +2,9 @@
 Test basic functionality of the maze library
 """
 import pytest
-from ..src.cell import Cell
-from ..src.grid import Grid
+
+from src.cell import Cell
+from src.grid import Grid
 
 
 def test_cell_init():

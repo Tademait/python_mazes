@@ -1,4 +1,4 @@
-from ..src.cell import Cell
+from src.cell import Cell
 from random import randint
 
 class Grid:
@@ -8,6 +8,11 @@ class Grid:
 
         self.grid = self.prepare_grid()
         self.configure_cells()
+
+    def __repr__(self):
+        output = "+" + "---+" * self.columns + "\n"
+        
+
 
     def prepare_grid(self):
         return [[Cell(row, col) for col in range(self.columns)] for row in range(self.rows)]
